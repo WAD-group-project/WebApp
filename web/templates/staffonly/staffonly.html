@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Only</title>
+</head>
+<body>
+    <h1>Staff Only</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'create_class' %}">Create New Class</a></li>
+            <li><a href="{% url 'cancel_class' %}">Cancel Class</a></li>
+            <li><a href="{% url 'create_announcement' %}">Post an Announcement</a></li>
+            <li><a href="{% url 'staff_feedback' %}">Feedback</a></li>
+            
+        </ul>
+    </nav>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+</body>
+</html>

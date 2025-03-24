@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book an Activity</title>
+</head>
+<body>
+    <h1>Book an Activity</h1>
+
+    <p>Select an activity to book:</p>
+    <ul>
+        <li><a href="#"> Table Tennis (Room A)</a></li>
+        <li><a href="#"> Badminton Court 1</a></li>
+        <li><a href="#"> Basketball Half-Court</a></li>
+        <li><a href="#"> Swimming Lane 3</a></li>
+        <li><a href="#"> Archery Practice</a></li>
+    </ul>
+
+    <p><a href="{% url 'memberonly' %}">Back to Members Only</a></p>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+</body>
+</html>
+
+

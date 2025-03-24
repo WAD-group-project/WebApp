@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Gym Website - Homepage</h1>
+    <p>This is a placeholder homepage. Style and content to be added.</p>
+    <nav>
+        <ul>
+	    <li><a href="{% url 'info' %}">Info</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+	    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+	    <li><a href="{% url 'membership' %}">Manage My Membership</a></li>
+	    <li><a href="{% url 'memberonly' %}">Members Only</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+	    <li><a href="{% url 'staffonly' %}">Staff Only</a></li>
+
+        </ul>
+    </nav>
+</body>
+</html>

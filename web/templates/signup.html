@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Register an Account</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"><br>
+
+        <label for="password1">Password:</label>
+        <input type="password" name="password1" id="password1"><br>
+
+        <label for="password2">Confirm Password:</label>
+        <input type="password" name="password2" id="password2"><br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+   <back homepage>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+</body>
+</html>

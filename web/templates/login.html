@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p><a href="{% url 'contact' %}">Contact Us</a></p>
+<a class="btn-signup" href="{% url 'signup' %}">Sign Up</a>
+  <back homepage>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cost Information</title>
+</head>
+<body>
+    <h1>Membership Cost</h1>
+
+    <h2>Standard Plans</h2>
+    <ul>
+        <li><strong>Monthly Membership:</strong> £35 / month</li>
+        <li><strong>Quarterly Membership:</strong> £90 / 3 months</li>
+        <li><strong>Annual Membership:</strong> £320 / year</li>
+    </ul>
+
+    <h2>Student & Senior Discounts</h2>
+    <p>Students and seniors (60+) receive 15% off all membership types with valid ID.</p>
+
+    <h2>Day Pass</h2>
+    <p>Visitors can access the gym with a one-time day pass for £8.</p>
+
+    <p><a href="{% url 'info' %}">Back to Info</a></p>
+</body>
+</html>
+

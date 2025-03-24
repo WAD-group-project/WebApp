@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"><br>
+
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" rows="4"></textarea><br>
+
+        <button type="submit">Send</button>
+    </form>
+    <back homepage>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+
+</body>
+</html>
+
+

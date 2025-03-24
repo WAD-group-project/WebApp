@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage My Membership</title>
+</head>
+<body>
+    <h1>Manage My Membership</h1>
+    <ul>
+        <li><a href="{% url 'renew_membership' %}">Renew Membership</a></li>
+        <li><a href="{% url 'cancel_membership' %}">Cancel Membership</a></li>
+        <li><a href="{% url 'update_membership' %}">Update Membership</a></li>
+    </ul>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+</body>
+</html>

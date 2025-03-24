@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Information</title>
+</head>
+<body>
+    <h1>Gym Information</h1>
+
+    <h2>Location</h2>
+    <p>Byres Road, Glasgow, G12 8QQ</p>
+
+    <h2>Opening Hours</h2>
+    <ul>
+        <li>Monday - Friday: 07:00 - 23:00</li>
+        <li>Saturday: 08:00 - 20:00</li>
+        <li>Sunday: 09:00 - 18:00</li>
+    </ul>
+
+    <h2>Facilities Overview</h2>
+    <p>Our gym features a fully equipped weightlifting area, cardio machines, stretching zones, and personal training support.</p>
+
+    <p><a href="{% url 'info' %}">Back to Info</a></p>
+</body>
+</html>
+

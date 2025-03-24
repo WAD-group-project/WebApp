@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Class</title>
+</head>
+<body>
+    <h1>Create New Class</h1>
+
+    <p>Select a class to create:</p>
+    <ul>
+        <li><a href="#"> Yoga – Beginner Level</a></li>
+        <li><a href="#"> Cycle – Cardio Blast</a></li>
+        <li><a href="#"> HIIT – High Intensity</a></li>
+        <li><a href="#"> Pilates – Core Strength</a></li>
+        <li><a href="#"> Boxing – Fundamentals</a></li>
+        <li><a href="#"> Weight Training – Intermediate</a></li>
+        <li><a href="#"> Zumba – Dance Workout</a></li>
+    </ul>
+
+
+
+    <p><a href="{% url 'staffonly' %}">Back to Staff Only</a></p>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+</body>
+</html>
+

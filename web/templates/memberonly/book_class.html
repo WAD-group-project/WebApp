@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book a Class</title>
+</head>
+<body>
+    <h1>Book a Class</h1>
+
+    <p>Select a class to book:</p>
+    <ul>
+        <li><a href="#"> Yoga – 17:00</a></li>
+        <li><a href="#"> Cycle – 17:45</a></li>
+        <li><a href="#"> Core Strength – 18:00</a></li>
+        <li><a href="#"> Pilates – 18:05</a></li>
+        <li><a href="#"> Boxing – 19:00</a></li>
+    </ul>
+
+    <p><a href="{% url 'memberonly' %}">Back to Members Only</a></p>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
+</body>
+</html>
+
