@@ -19,7 +19,11 @@ urlpatterns = [
     path('contact/', views.contact_view, name='contact'),
     #sign up
     path('signup/', views.signup_view, name='signup'),
-
+    #forgot password
+    path('forgot-password/', views.forgot_password, name='forgot_password'), 
+    #AJAX login & signup
+    path('ajax/login/', views.login_ajax, name='login_ajax'),
+    path('ajax/signup/', views.signup_ajax, name='signup_ajax'),
 
 
     # Membership management

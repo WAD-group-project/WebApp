@@ -1,0 +1,147 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #222;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+}
+
+nav {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffda79;
+    text-decoration: underline;
+}
+
+footer {
+    padding: 20px;
+    background: #222;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer nav.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer nav.footer-nav ul li {
+    margin: 0 15px;
+}
+
+footer nav.footer-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+footer nav.footer-nav ul li a:hover {
+    color: #ffda79;
+    text-decoration: underline;
+}
+
+/* Style buttons, form, and other inputs */
+.button {
+    display: inline-block;
+    background: #ff4b2b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #ff416c;
+    transform: scale(1.05);
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    background: #ff4b2b;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #ff416c;
+    transform: scale(1.05);
+}

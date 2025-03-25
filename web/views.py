@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, login
 
 # Homepage
 def homepage(request):
@@ -77,5 +80,29 @@ def create_announcement(request):
 def staff_feedback(request):
     return render(request, 'staffonly/staff_feedback.html')
 
+def forgot_password(request):
+    return render(request, 'forgot_password.html')
 
-
+def signup_ajax(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({"success": False, "error": "Username taken!"})
+        
+        User.objects.create_user(username=username, email=email, password=password)
+        return JsonResponse({"success": True})
+    
+def login_ajax(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False})

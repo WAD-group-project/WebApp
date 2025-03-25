@@ -1,27 +1,22 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create New Class</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Create New Class{% endblock %}
+
+{% block content %}
     <h1>Create New Class</h1>
 
     <p>Select a class to create:</p>
+
+    <!--all classes which can be created-->
     <ul>
-        <li><a href="#"> Yoga – Beginner Level</a></li>
-        <li><a href="#"> Cycle – Cardio Blast</a></li>
-        <li><a href="#"> HIIT – High Intensity</a></li>
-        <li><a href="#"> Pilates – Core Strength</a></li>
-        <li><a href="#"> Boxing – Fundamentals</a></li>
-        <li><a href="#"> Weight Training – Intermediate</a></li>
-        <li><a href="#"> Zumba – Dance Workout</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=Yoga" class="btn btn-info">Yoga – Beginner Level</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=Cycle" class="btn btn-info">Cycle – Cardio Blast</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=HIIT" class="btn btn-info">HIIT – High Intensity</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=Pilates" class="btn btn-info">Pilates – Core Strength</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=Boxing" class="btn btn-info">Boxing – Fundamentals</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=Weight_Training" class="btn btn-info">Weight Training – Intermediate</a></li>
+        <li><a href="{% url 'create_class' %}?class_type=Zumba" class="btn btn-info">Zumba – Dance Workout</a></li>
     </ul>
 
-
-
-    <p><a href="{% url 'staffonly' %}">Back to Staff Only</a></p>
-    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
-</body>
-</html>
-
+    <a href="{% url 'staffonly' %}" class="btn btn-secondary">Back to Staff Only</a>
+{% endblock %}

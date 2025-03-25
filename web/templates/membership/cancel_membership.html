@@ -1,12 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cancel Membership</title>
-</head>
-<body>
-    <h1>Cancel Membership</h1>
-    <p>This is a placeholder page for cancelling your membership.</p>
-    <p><a href="{% url 'membership' %}">Back to Membership</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Cancel Membership{% endblock %}
+
+{% block content %}
+    <h1>Cancel Your Membership</h1>
+    <p>Are you sure you want to cancel your membership? This action cannot be undone.</p>
+
+    <form method="POST" action="{% url 'cancel_membership' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Cancel Membership</button>
+    </form>
+
+    <a href="{% url 'membership' %}" class="btn btn-secondary">Back to Membership</a>
+{% endblock %}

@@ -1,10 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gym Information</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h1>Gym Information</h1>
 
     <h2>Location</h2>
@@ -19,8 +15,4 @@
 
     <h2>Facilities Overview</h2>
     <p>Our gym features a fully equipped weightlifting area, cardio machines, stretching zones, and personal training support.</p>
-
-    <p><a href="{% url 'info' %}">Back to Info</a></p>
-</body>
-</html>
-
+{% endblock %}

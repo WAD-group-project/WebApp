@@ -1,23 +1,44 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Homepage</title>
-</head>
-<body>
-    <h1>Gym Website - Homepage</h1>
-    <p>This is a placeholder homepage. Style and content to be added.</p>
-    <nav>
-        <ul>
-	    <li><a href="{% url 'info' %}">Info</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-	    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-	    <li><a href="{% url 'membership' %}">Manage My Membership</a></li>
-	    <li><a href="{% url 'memberonly' %}">Members Only</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-	    <li><a href="{% url 'staffonly' %}">Staff Only</a></li>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Welcome to FitZone</h1>
+    <p>Join exciting classes and activities today!</p>
 
-        </ul>
-    </nav>
-</body>
-</html>
+    <h2>Featured Classes</h2>
+    <div class="class-list">
+        {% for class in classes %}
+        <div class="class-card">
+            <h3>{{ class.name }}</h3>
+            <p>{{ class.description }}</p>
+            <button class="btn book-class-btn" data-id="{{ class.id }}">Book Now</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2>Popular Activities</h2>
+    <div class="activity-list">
+        {% for activity in activities %}
+        <div class="activity-card">
+            <h3>{{ activity.name }}</h3>
+            <p>{{ activity.description }}</p>
+            <button class="btn book-activity-btn" data-id="{{ activity.id }}">Join Now</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    $(".book-class-btn").click(function() {
+        let classId = $(this).data("id");
+        $.post("/book-class/", { class_id: classId, csrfmiddlewaretoken: "{{ csrf_token }}" }, function(response) {
+            alert(response.message);
+        });
+    });
+
+    $(".book-activity-btn").click(function() {
+        let activityId = $(this).data("id");
+        $.post("/book-activity/", { activity_id: activityId, csrfmiddlewaretoken: "{{ csrf_token }}" }, function(response) {
+            alert(response.message);
+        });
+    });
+</script>
+{% endblock %}

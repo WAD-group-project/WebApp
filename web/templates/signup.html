@@ -1,28 +1,49 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up</title>
-</head>
-<body>
-    <h1>Register an Account</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username"><br>
+{% extends 'base.html' %}
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email"><br>
-
-        <label for="password1">Password:</label>
-        <input type="password" name="password1" id="password1"><br>
-
-        <label for="password2">Confirm Password:</label>
-        <input type="password" name="password2" id="password2"><br>
-
+{% block content %}
+    <h2>Signup</h2>
+    <form id="signupForm">
+        <input type="text" id="username" name="username" placeholder="Username" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+        <input type="email" id="email" name="email" placeholder="Email" required><br>
         <button type="submit">Sign Up</button>
     </form>
-   <back homepage>
-    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
-</body>
-</html>
+
+    <div id="errorMessage"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#signupForm').submit(function (e) {
+            e.preventDefault();
+
+            var username = $('#username').val();
+            var password = $('#password').val();
+            var email = $('#email').val();
+
+            $.ajax({
+                url: '/ajax/signup/',
+                type: 'POST',
+                data: JSON.stringify({
+                    "username": username,
+                    "password": password,
+                    "email": email
+                }),
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = '/login/';  // Redirect to login after successful signup
+                    } else {
+                        $('#errorMessage').html(response.message).css('color', 'red');
+                    }
+                },
+                error: function () {
+                    $('#errorMessage').html('An error occurred, please try again.').css('color', 'red');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

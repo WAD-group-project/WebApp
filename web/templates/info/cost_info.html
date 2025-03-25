@@ -1,10 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cost Information</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h1>Membership Cost</h1>
 
     <h2>Standard Plans</h2>
@@ -19,8 +15,4 @@
 
     <h2>Day Pass</h2>
     <p>Visitors can access the gym with a one-time day pass for £8.</p>
-
-    <p><a href="{% url 'info' %}">Back to Info</a></p>
-</body>
-</html>
-
+{% endblock %}

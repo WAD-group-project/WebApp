@@ -1,12 +1,20 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Feedback</title>
-</head>
-<body>
-    <h1>Feedback</h1>
-    <p>This is a placeholder page for member feedback.</p>
-    <p><a href="{% url 'memberonly' %}">Back to Members Only</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Send Us Your Feedback</h1>
+    <form id="feedback-form">
+        {% csrf_token %}
+        <textarea id="feedback-message" name="message" placeholder="Your message here..." required></textarea>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <p id="feedback-response"></p>
+</div>
+<script>
+    $("#feedback-form").submit(function(e) {
+        e.preventDefault();
+        $.post("/feedback/", $(this).serialize(), function(response) {
+            $("#feedback-response").text(response.message);
+        });
+    });
+</script>
+{% endblock %}

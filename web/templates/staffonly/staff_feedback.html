@@ -1,12 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Staff Feedback</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Staff Feedback{% endblock %}
+
+{% block content %}
     <h1>Feedback</h1>
-    <p>This is a placeholder page for staff feedback.</p>
-    <p><a href="{% url 'staffonly' %}">Back to Staff Only</a></p>
-</body>
-</html>
+    <p>Submit your feedback below.</p>
+
+    <form method="POST" action="{% url 'staff_feedback' %}">
+        {% csrf_token %}
+        <label for="feedback">Your Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+    </form>
+
+    <a href="{% url 'staffonly' %}" class="btn btn-secondary">Back to Staff Only</a>
+{% endblock %}

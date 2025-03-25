@@ -1,12 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Renew Membership</title>
-</head>
-<body>
-    <h1>Renew Membership</h1>
-    <p>This is a placeholder page for renewing your membership.</p>
-    <p><a href="{% url 'membership' %}">Back to Membership</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Renew Membership{% endblock %}
+
+{% block content %}
+    <h1>Renew Your Membership</h1>
+    <p>To renew your membership, click the button below.</p>
+
+    <form method="POST" action="{% url 'renew_membership' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Renew Membership</button>
+    </form>
+
+    <a href="{% url 'membership' %}" class="btn btn-secondary">Back to Membership</a>
+{% endblock %}

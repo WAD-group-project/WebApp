@@ -1,17 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Members Only</title>
-</head>
-<body>
-    <h1>Members Only</h1>
-    <p>This is a placeholder page for members-only features.</p>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Welcome, {{ user.username }}</h1>
+    <h2>Your Booked Classes</h2>
     <ul>
-        <li><a href="{% url 'book_class' %}">Book a Class</a></li>
-        <li><a href="{% url 'book_activity' %}">Book an Activity</a></li>
-        <li><a href="{% url 'feedback' %}">Feedback</a></li>
+        {% for booking in booked_classes %}
+        <li>{{ booking.class_name }} - {{ booking.date }}</li>
+        {% endfor %}
     </ul>
-    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
-</body>
-</html>
+
+    <h2>Your Activities</h2>
+    <ul>
+        {% for activity in joined_activities %}
+        <li>{{ activity.name }} - {{ activity.date }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Change Password</h2>
+    <form id="change-password-form">
+        {% csrf_token %}
+        <input type="password" name="old_password" placeholder="Old Password" required>
+        <input type="password" name="new_password" placeholder="New Password" required>
+        <button type="submit" class="btn">Update Password</button>
+    </form>
+    <p id="password-message"></p>
+</div>
+<script>
+    $("#change-password-form").submit(function(e) {
+        e.preventDefault();
+        $.post("/change-password/", $(this).serialize(), function(response) {
+            $("#password-message").text(response.message);
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gym Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{% url 'homepage' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Gym Logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'info' %}">Info</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <nav class="footer-nav">
+            <ul>
+                {% if 'staffonly' in request.path %}
+                    <li><a href="{% url 'create_class' %}">Create Class</a></li>
+                    <li><a href="{% url 'cancel_class' %}">Cancel Class</a></li>
+                    <li><a href="{% url 'create_announcement' %}">Create Announcement</a></li>
+                    <li><a href="{% url 'staff_feedback' %}">Staff Feedback</a></li>
+                {% elif 'memberonly' in request.path %}
+                    <li><a href="{% url 'book_class' %}">Book Class</a></li>
+                    <li><a href="{% url 'book_activity' %}">Book Activity</a></li>
+                    <li><a href="{% url 'feedback' %}">Feedback</a></li>
+                {% elif 'info' in request.path %}
+                    <li><a href="{% url 'gym_info' %}">Gym Info</a></li>
+                    <li><a href="{% url 'facility_info' %}">Facility Info</a></li>
+                    <li><a href="{% url 'announcement_info' %}">Announcement Info</a></li>
+                    <li><a href="{% url 'cost_info' %}">Cost Info</a></li>
+                {% elif 'contact' in request.path %}
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                {% elif 'login' in request.path %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'forgot_password' %}">Forgot Password</a></li>
+                {% elif 'signup' in request.path %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <p>&copy; 2025 Gym Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

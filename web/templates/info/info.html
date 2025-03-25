@@ -1,20 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Info</title>
-</head>
-<body>
-    <h1>Info Page</h1>
-    <p>This is the placeholder for the Info page. Choose one of the following for more details:</p>
-    <nav>
-        <ul>
-            <li><a href="{% url 'gym_info' %}">Gym Info</a></li>
-            <li><a href="{% url 'facility_info' %}">Facility Info</a></li>
-            <li><a href="{% url 'announcement_info' %}">Announcement Info</a></li>
-            <li><a href="{% url 'cost_info' %}">Cost Info</a></li>
-        </ul>
-    </nav>
-	 <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Information Page</h1>
+        <p>Welcome to the information section! Please choose one of the following options for more details about our gym:</p>
+        
+        </div>
+    </div>
+{% endblock %}

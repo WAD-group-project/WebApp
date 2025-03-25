@@ -1,12 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Announcement Information</title>
-</head>
-<body>
-    <h1>Announcement Information</h1>
-    <p>This is a placeholder page for Announcement Information.</p>
-    <p><a href="{% url 'info' %}">Back to Info</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Announcement Information</h1>
+        <p>Welcome to the announcement section. Here, you'll find important updates and notices.</p>
+        
+        <div class="announcement-box">
+            <h2>Latest Announcements:</h2>
+            <ul>
+                <li><strong>New Gym Timings:</strong> Our gym will open at 6 AM starting next Monday!</li>
+                <li><strong>Holiday Offers:</strong> Get 10% off on annual memberships this season.</li>
+                <li><strong>Class Cancellations:</strong> Zumba class on Thursday is cancelled due to maintenance.</li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,10 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
     <h1>Contact Us</h1>
     <form method="post">
         {% csrf_token %}
@@ -19,10 +16,4 @@
 
         <button type="submit">Send</button>
     </form>
-    <back homepage>
-    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
-
-</body>
-</html>
-
-
+{% endblock %}

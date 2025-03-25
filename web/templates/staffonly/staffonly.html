@@ -1,20 +1,19 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Staff Only</title>
-</head>
-<body>
-    <h1>Staff Only</h1>
+{% extends 'base.html' %}
+
+{% block title %}Staff Only{% endblock %}
+
+{% block content %}
+    <h1>Staff Only Area</h1>
+    <p>Choose one of the following options:</p>
+
     <nav>
         <ul>
-            <li><a href="{% url 'create_class' %}">Create New Class</a></li>
-            <li><a href="{% url 'cancel_class' %}">Cancel Class</a></li>
-            <li><a href="{% url 'create_announcement' %}">Post an Announcement</a></li>
-            <li><a href="{% url 'staff_feedback' %}">Feedback</a></li>
-            
+            <li><a href="{% url 'create_class' %}" class="btn btn-primary">Create New Class</a></li>
+            <li><a href="{% url 'cancel_class' %}" class="btn btn-danger">Cancel Class</a></li>
+            <li><a href="{% url 'create_announcement' %}" class="btn btn-info">Post an Announcement</a></li>
+            <li><a href="{% url 'staff_feedback' %}" class="btn btn-warning">Submit Feedback</a></li>
         </ul>
     </nav>
-    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
-</body>
-</html>
+
+    <a href="{% url 'homepage' %}" class="btn btn-secondary">Back to Homepage</a>
+{% endblock %}

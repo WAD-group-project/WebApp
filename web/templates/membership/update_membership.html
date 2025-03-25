@@ -1,12 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Membership</title>
-</head>
-<body>
-    <h1>Update Membership</h1>
-    <p>This is a placeholder page for updating your membership information.</p>
-    <p><a href="{% url 'membership' %}">Back to Membership</a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Update Membership{% endblock %}
+
+{% block content %}
+    <h1>Update Your Membership</h1>
+    <p>Click below to update your membership details.</p>
+
+    <form method="POST" action="{% url 'update_membership' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning">Update Membership</button>
+    </form>
+
+    <a href="{% url 'membership' %}" class="btn btn-secondary">Back to Membership</a>
+{% endblock %}
