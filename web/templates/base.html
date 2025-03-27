@@ -18,7 +18,9 @@
                 <img src="{% static 'images/logo.png' %}" alt="Gym Logo" class="logo">
             </a>
         </div>
-        <nav>
+        
+        <nav >
+
             <ul>
                 <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'info' %}">Info</a></li>
@@ -35,7 +37,7 @@
     </main>
 
     <footer>
-        <nav class="footer-nav">
+        <nav class="footer-nav" >
             <ul>
                 {% if 'staffonly' in request.path %}
                     <li><a href="{% url 'create_class' %}">Create Class</a></li>
