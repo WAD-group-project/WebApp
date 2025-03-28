@@ -4,42 +4,48 @@
     <h1>Welcome to FitZone</h1>
     <p>Join exciting classes and activities today!</p>
 
-
+    <!-- Featured Classes -->
     <h2>Featured Classes</h2>
     <div class="class-list">
-        {% for class in classes %}
         <div class="class-card">
-            <h3>{{ class.name }}</h3>
-            <p>{{ class.description }}</p>
-            <button class="btn book-class-btn" data-id="{{ class.id }}">Book Now</button>
+            <h3> Yoga Flow</h3>
+            <p>A relaxing and energizing yoga class suitable for all levels.</p>
         </div>
-        {% endfor %}
+        <div class="class-card">
+            <h3>💪HIIT Blast</h3>
+            <p>High intensity interval training to push your limits and burn calories fast.</p>
+        </div>
+        <div class="class-card">
+            <h3> Pilates Core</h3>
+            <p>Strengthen your core, improve posture, and tone your muscles.</p>
+        </div>
+        <div class="class-card">
+            <h3> Strength Training</h3>
+            <p>Build muscle with guided weight training and technique tips.</p>
+        </div>
     </div>
 
+    <!-- Popular Activities -->
     <h2>Popular Activities</h2>
     <div class="activity-list">
-        {% for activity in activities %}
         <div class="activity-card">
-            <h3>{{ activity.name }}</h3>
-            <p>{{ activity.description }}</p>
-            <button class="btn book-activity-btn" data-id="{{ activity.id }}">Join Now</button>
+            <h3> Badminton</h3>
+            <p>Friendly matches in a casual atmosphere. Equipment available on site.</p>
         </div>
-        {% endfor %}
+        <div class="activity-card">
+            <h3> Indoor Cycling</h3>
+            <p>Cardio-based cycling classes set to motivating music.</p>
+        </div>
+        <div class="activity-card">
+            <h3> Zumba</h3>
+            <p>A fun dance-based workout that burns calories and lifts your mood.</p>
+        </div>
+        <div class="activity-card">
+            <h3> Swimming</h3>
+            <p>Lane swimming or recreational – the choice is yours!</p>
+        </div>
     </div>
 </div>
-<script>
-    $(".book-class-btn").click(function() {
-        let classId = $(this).data("id");
-        $.post("/book-class/", { class_id: classId, csrfmiddlewaretoken: "{{ csrf_token }}" }, function(response) {
-            alert(response.message);
-        });
-    });
-
-    $(".book-activity-btn").click(function() {
-        let activityId = $(this).data("id");
-        $.post("/book-activity/", { activity_id: activityId, csrfmiddlewaretoken: "{{ csrf_token }}" }, function(response) {
-            alert(response.message);
-        });
-    });
-</script>
 {% endblock %}
+
+
