@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.utils.timezone import now
 from datetime import timedelta
 from django.urls import reverse
-from your_app.models import User, Staff, Activity
+from models.py import User, Staff, Activity
 
 
 class LoginTests(TestCase):
